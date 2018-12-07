@@ -41,9 +41,9 @@ class UserController{
  function login($username, $password){
 
        if($this->authenticate($username, $password)){
-          session_start();
+       session_start();
           $user = new UserModel($username);
-          $_SESSION['user'] = $user;
+          $_SESSION['user'] = $username;
           return true;
        }else{
          return false;

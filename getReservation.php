@@ -1,10 +1,10 @@
 <?php 
-
-echo('worked');
 	
 require_once('Reservation.model.inc.php');
 
 $q = intval($_GET['q']);
+
+echo(".");
 
 $Reservation= new RerservationModel();
 if($q == "1"){
@@ -25,7 +25,6 @@ $cReservation = $Reservation->get_reservationby_condition("payment_status like '
 </head>
 <body>
 
-<div class="row jqueryOptions opt1" id="bookinginfo0" >
                 <div class="custom-responsive">
 				  <h4 class="center-align"><? if($q == "1") { echo "Last 7 Days";} if($q == "2") { echo "Payment Pending";}
 					  if($q == "3") { echo "Fully Paid";} ?></h4>
@@ -64,5 +63,6 @@ $cReservation = $Reservation->get_reservationby_condition("payment_status like '
               </div>
 	</div>
 	
-	</body>
+
+</body>
 </html>

@@ -34,7 +34,7 @@ if(isset($_SESSION['user'])) header("Location:main.php");
          </div>
       </div>
 
-  <button class="btn waves-effect waves-light" type="submit" name="op" value="login">Login
+  <button class="btn grey darken-4 waves-effect waves-light" type="submit" name="op" value="login">Login
     <i class="material-icons left">home</i>
   </button>
     </form>
