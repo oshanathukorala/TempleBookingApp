@@ -35,7 +35,7 @@
       <li><a href="names.html"><i class="material-icons pink-item">book</i>Reservation management</a></li>
       <li><a href="names.html"><i class="material-icons pink-item">book</i>Room management</a></li>
       <li><a href="names.html"><i class="material-icons pink-item">hotel</i>Make a Booking</a></li>
-       <li><a href="signupmock.php"><i class="material-icons pink-item">person_add</i>Add User</a></li>
+       <li><a href="signup.php"><i class="material-icons pink-item">person_add</i>Add User</a></li>
       </ul>
     <main>
     <section class="content">
