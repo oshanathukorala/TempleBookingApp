@@ -9,7 +9,7 @@
 </head>
   <body>
   <div class="login-controls" id="signup">
-    <h2>Add User<i class="Medium material-icons left">business_center</i></h2>
+    <h2>Add User<a href="main.php"><i class="Medium material-icons left">dashboard</i></a></h2>
 
 	  <?php if(@$_GET['error'] == 'emptyfields') { ?>
       <div class="data-error">Please fill all fields</div>
@@ -62,7 +62,7 @@
         </div>
       </div>
 
-		<button class="btn waves-effect waves-light" type="submit" name="op" value="signup">Sign-up
+		<button class="btn grey darken-4 waves-effect waves-light" type="submit" name="op" value="signup">Sign-up
           <i class="material-icons left">person_add</i>
        </button>
 
