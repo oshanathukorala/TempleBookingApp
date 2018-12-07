@@ -13,7 +13,7 @@ switch ($op) {
     $password = $_POST['pass'];
 
     if($user_controller->login($username, $password)) {
-           header("Location:maindev.php?user=".$_POST['user']);
+           header("Location:main.php?user=".$_POST['user']);
     }else {
            header("Location:login.php?err=1");
     }
@@ -31,7 +31,7 @@ switch ($op) {
          $email    = $_POST['email'];
 
         $user_controller->create($username,$password, $rpassword, $email);
-        header("Location:maindev1.php");
+        header("Location:main.php");
      break;
 
   default:
