@@ -1,0 +1,21 @@
+
+.login-controls{
+           margin:2vh auto;
+           border:1px solid #ccc;
+           padding: 50px;
+           width: 400px;
+}
+
+#signup{
+	
+	 width: 500px;
+}
+
+@media screen and (max-width: 600px) {
+   .login-controls{
+        float: none;
+	    margin:5vh auto;
+        width: 100%;
+    }
+	
+}
