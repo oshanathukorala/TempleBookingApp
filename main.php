@@ -162,68 +162,7 @@ require_once('Reservation.model.inc.php');
 
 <script src="js/mdl-jquery-modal-dialog.js"></script>
 
-
-
-<script>
-
-function showUser(str) {
-  if (str == "") {
-    document.getElementById("txtHint").innerHTML = "";
-    return;
-  } else {
-    if (window.XMLHttpRequest) {
-      // code for IE7+, Firefox, Chrome, Opera, Safari
-      xmlhttp = new XMLHttpRequest();
-    } else {
-      // code for IE6, IE5
-      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("txtHint").innerHTML = this.responseText;
-
-        $('.view_data').click(function () {
-          var id = $(this).attr("value");
-          showDialog({
-            title: 'DELETE booking with ID: '+id,
-            text: 'Are you sure you want to Delete this Booking?',
-            negative: {
-              title: 'Cancel'
-            },
-            positive: {
-              title: 'Yes',
-              onClick: function (e) {
-                xmlhttp.open("POST","delete.reservation.php?bookingID="+id,true);
-                xmlhttp.send();
-              }
-            }
-          });
-        });
-
-      }
-    };
-    xmlhttp.open("GET","getReservation.php?q="+str,true);
-    xmlhttp.send();
-  }
-}
-</script>
-
-<script>
-// Hide sideNav
-$('.button-collapse').sideNav({
-  menuWidth: 300, // Default is 300
-  edge: 'left', // Choose the horizontal origin
-  closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-  draggable: true // Choose whether you can drag to open on touch screens
-});
-$(document).ready(function(){
-  $('.tooltipped').tooltip({delay: 50});
-});
-$('select').material_select();
-$('.collapsible').collapsible();
-
-</script>
-
-
+<script src="js/custom.js"></script>
+  
 </body>
 </html>

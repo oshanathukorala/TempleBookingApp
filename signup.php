@@ -28,7 +28,7 @@
        </div>
       </li>
 
-      <li><a class="active" href="#"><i class="material-icons pink-item">dashboard</i>Admin Panel</a></li>
+      <li><a class="active" href="main.php"><i class="material-icons pink-item">dashboard</i>Admin Panel</a></li>
       <li><div class="divider"></div></li>
 
       <li><a class="subheader">Management</a></li>

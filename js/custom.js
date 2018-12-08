@@ -37,7 +37,7 @@ if ($("#fpopup").length) { // if we have a popup to show
 function genKey() {
     var key = ""
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    
+
     for (var i=0; i < 16; i++) {
         key += possible.charAt(Math.floor(Math.random() * possible.length));
         if (i % 4 === 0 && !(i in [0])) {
@@ -52,7 +52,7 @@ function genKey() {
 }
 var ids = [];
 var currentActive2 = '';
-var children = document.getElementById('objects').children;     
+var children = document.getElementById('objects').children;
 var childrenLength = children.length;
 for(var i = 0; i < childrenLength; i++){
     if(children[i].nodeName.toLowerCase() === 'div'){
@@ -92,3 +92,61 @@ $("#cleft").on('click', function() {
     currentActive2 = '';
 });
 $('.autocomplete-suggestion').css('width','300px');
+
+
+//main.php js files
+
+function showUser(str) {
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+    } else {
+      // code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+
+        $('.view_data').click(function () {
+          var id = $(this).attr("value");
+          showDialog({
+            title: 'DELETE booking with ID: '+id,
+            text: 'Are you sure you want to Delete this Booking?',
+            negative: {
+              title: 'Cancel'
+            },
+            positive: {
+              title: 'Yes',
+              onClick: function (e) {
+                xmlhttp.open("POST","delete.reservation.php?bookingID="+id,true);
+                xmlhttp.send();
+              }
+            }
+          });
+        });
+
+      }
+    };
+    xmlhttp.open("GET","getReservation.php?q="+str,true);
+    xmlhttp.send();
+  }
+}
+
+
+
+$('.button-collapse').sideNav({
+  menuWidth: 300, // Default is 300
+  edge: 'left', // Choose the horizontal origin
+  closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+  draggable: true // Choose whether you can drag to open on touch screens
+});
+$(document).ready(function(){
+  $('.tooltipped').tooltip({delay: 50});
+});
+$('select').material_select();
+$('.collapsible').collapsible();
