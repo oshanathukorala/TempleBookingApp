@@ -59,16 +59,17 @@ if(!isset($_SESSION['user'])){
     <li><a href="signup.php"><i class="material-icons pink-item">person_add</i>Add User</a></li>
   </ul>
 
-  <?php
+<?php
 
-  require_once('Reservation.model.inc.php');
+require_once('Reservation.model.inc.php');
 
   $Reservation =new RerservationModel();
+
   $LWReservation = $Reservation->get_reservationby_condition('DATEDIFF(NOW(), booking_date) <= 7');
   $PPReservation = $Reservation->get_reservationby_condition("payment_status like 'pend%'");
   $PBReservation = $Reservation->get_reservationby_condition("payment_status like 'conf%'");
 
-  ?>
+?>
 
 
   <main>
@@ -128,6 +129,13 @@ if(!isset($_SESSION['user'])){
         <!-- More details tables-->
         <div id="txtHint"><b></b></div>
 
+
+<!--debug area-->
+
+
+<!--debug area ends-->
+
+
       </div>
     </section>
   </main>
@@ -174,7 +182,7 @@ function showUser(str) {
       if (this.readyState == 4 && this.status == 200) {
         document.getElementById("txtHint").innerHTML = this.responseText;
 
-        $('#show-action').click(function () {
+        $('.view_data').click(function () {
           var id = $(this).attr("value");
           showDialog({
             title: 'DELETE booking with ID: '+id,
@@ -185,11 +193,8 @@ function showUser(str) {
             positive: {
               title: 'Yes',
               onClick: function (e) {
-                //alert("working");
-                console.log("getReservation.php?q="+id);
-                xmlhttp.open("POST","getReservation.php?q="+id,true);
+                xmlhttp.open("POST","delete.reservation.php?bookingID="+id,true);
                 xmlhttp.send();
-                console.log("deleted successfully "+id);
               }
             }
           });

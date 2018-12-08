@@ -48,23 +48,23 @@ if( $q =="3"){
       $arrayLength = count($cReservation);
       for ($i = 1; $i <=$arrayLength; $i++) {
         ?><tr>
-          <th><?php echo $cReservation[i]->booking_id ?></th>
-          <th><?php echo $cReservation[i]->checkin_date ?></th>
-          <th><?php echo $cReservation[i]->checkout_date ?></th>
-          <th><?php echo $cReservation[i]->room_id ?></th>
-          <th><?php echo ("Adults:".$cReservation[i]->total_adult."  Child:".$cReservation[i]->total_children) ?></th>
-          <th><?php echo $cReservation[i]->total_amount ?></th>
-          <th><?php echo $cReservation[i]->deposit ?></th>
-          <th><?php echo $cReservation[i]->balance ?></th>
-          <th><?php echo $cReservation[i]->payment_status ?></th>
+          <th><?php echo $cReservation[$i]->booking_id ?></th>
+          <th><?php echo $cReservation[$i]->checkin_date ?></th>
+          <th><?php echo $cReservation[$i]->checkout_date ?></th>
+          <th><?php echo $cReservation[$i]->room_id ?></th>
+          <th><?php echo ("Adults:".$cReservation[$i]->total_adult."  Child:".$cReservation[$i]->total_children) ?></th>
+          <th><?php echo $cReservation[$i]->total_amount ?></th>
+          <th><?php echo $cReservation[$i]->deposit ?></th>
+          <th><?php echo $cReservation[$i]->balance ?></th>
+          <th><?php echo $cReservation[$i]->payment_status ?></th>
           <th>
             <div class="btn-toolbar">
-              <a href="reservation.php?booking_id=<?php echo $cReservation[i]->booking_id ?>"
+              <a href="reservation.php?booking_id=<?php echo $cReservation[$i]->booking_id ?>"
                 <button class="btn green" type="submit">
                   <i class="material-icons">info</i>
                 </button>
               </a>
-              <button class="view_data btn red" type="submit" value="<?php echo $cReservation[i]->booking_id ?>" id="show-action">
+              <button class="view_data btn red" type="submit" value="<?php echo $cReservation[$i]->booking_id ?>" id="show-action">
                 <i class="material-icons">remove</i>
               </button>
 
