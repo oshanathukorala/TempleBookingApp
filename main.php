@@ -10,16 +10,12 @@ $PPReservation = $Reservation->get_reservationby_condition("payment_status like 
 $PBReservation = $Reservation->get_reservationby_condition("payment_status like 'conf%'");
 
 ?>
-
-
 <main>
   <section class="content">
     <div class="page-announce valign-wrapper"><a href="#" data-activates="slide-out" class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a><h1 class="page-announce-text valign">Admin Panel </h1></div>
 
-
     <!-- Stat Boxes -->
     <div class="row">
-
 
       <div class="col l4 m4 s12">
         <!-- small box -->
@@ -79,6 +75,8 @@ $PBReservation = $Reservation->get_reservationby_condition("payment_status like 
     </div>
   </section>
 </main>
+<script src="js/mdl-jquery-modal-dialog.js"></script>
+<script src="js/custom.js"></script>
 
 
 <?php include 'Footer.php'; ?>

@@ -1,4 +1,30 @@
 <?php include 'Header.php'; ?>
+<!--
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//storage.googleapis.com/code.getmdl.io/1.2.1/material.min.js"></script>
+    <link rel="stylesheet"
+          href="https://storage.googleapis.com/code.getmdl.io/1.2.1/material.deep_orange-amber.min.css"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css\mdl-jquery-modal-dialog.css">
+    <script src="js\mdl-jquery-modal-dialog.js"></script>
+    <style>
+        body {
+            padding: 16px;
+        }
+        button {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+-->
+
+
 <?php
 require_once('Reservation.model.inc.php');
 require_once('customer.model.inc.php');
@@ -15,9 +41,9 @@ $cReservation = $Reservation->get_reservationby_condition("booking_id=$booking_i
 $cmodel = new CustomerModel();
 $customer = $cmodel->get_customer_by_ID($cReservation[1]->cust_id);
 
-
-
 ?>
+
+
 <main>
   <section class="content">
     <div class="page-announce valign-wrapper"><a href="#" data-activates="slide-out" class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a><h1 class="page-announce-text valign">Reservation details</h1></div>
@@ -58,11 +84,13 @@ $customer = $cmodel->get_customer_by_ID($cReservation[1]->cust_id);
         <br>
       </form>
 
+      <button class="btn waves-effect waves-light modal-trigger" type="submit" href="#modal1" id="update-cust">Edit Customer Information<i class="material-icons left">library_add</i></button>
+
       <br><br>
 
 
 <h3>Reservation Details</h3><br>
-      <table class="striped hover blue">
+      <table class="striped hover">
         <thead><tr>
           <th>Booking No.</th>
           <th>Check In</th>
@@ -92,17 +120,51 @@ $customer = $cmodel->get_customer_by_ID($cReservation[1]->cust_id);
       </tbody>
     </table>
 
-
-
-
+    <button class="btn waves-effect waves-light" type="submit" name="op" value="login" id="btn_ab">Edit Booking
+      <i class="material-icons left">add_circle</i>
+    </button>
 
   </div>
 </section>
+
+<div id="modal1" class="modal">
+   <div class="modal-content">
+     <h4>Modal Header</h4>
+     <p>A bunch of text</p>
+   </div>
+   <div class="modal-footer">
+     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+   </div>
+ </div>
+
 </main>
 
+<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="//storage.googleapis.com/code.getmdl.io/1.2.1/material.min.js"></script>
+<script src="js\mdl-jquery-modal-dialog.js"></script>
 
+<script>
+$('#update-cust').click(function () {
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp = new XMLHttpRequest();
+  } else {
+    // code for IE6, IE5
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
 
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      showDialog({
+        text:this.responseText
+    });
 
+    }
+  };
+  xmlhttp.open("GET","update.reservation.php?q=2&id=1",true);
+  xmlhttp.send();
+});
+</script>
 <!-- Footer starts here-->
 
-<?php include 'Footer.php' ?>
+<?php include 'Footer.php'?>

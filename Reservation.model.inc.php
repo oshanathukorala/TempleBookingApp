@@ -4,6 +4,20 @@ require_once('database.class.php');
 
 class RerservationModel{
 
+  function get_reservation_by_ID($bookingID){
+    $query = "select * from `reservation` WHERE booking_id='$bookingID';";
+    $db = new Database;
+    $result = $db->query($query);
+
+    if(!$result){
+      return null;
+    }
+
+    $booking = mysqli_fetch_array($result,MYSQLI_BOTH);
+
+    return $booking;
+  }
+
   function delete_reservation_by_ID($bookingID){
     $query = "DELETE FROM `reservation` WHERE booking_id='$bookingID';";
     $db = new Database;

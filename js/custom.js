@@ -50,6 +50,7 @@ function genKey() {
 
     return key;
 }
+
 var ids = [];
 var currentActive2 = '';
 var children = document.getElementById('objects').children;
@@ -96,6 +97,7 @@ $('.autocomplete-suggestion').css('width','300px');
 
 //main.php js files
 
+
 function showUser(str) {
   if (str == "") {
     document.getElementById("txtHint").innerHTML = "";
@@ -108,6 +110,7 @@ function showUser(str) {
       // code for IE6, IE5
       xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
+
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         document.getElementById("txtHint").innerHTML = this.responseText;
@@ -138,7 +141,6 @@ function showUser(str) {
 }
 
 
-
 $('.button-collapse').sideNav({
   menuWidth: 300, // Default is 300
   edge: 'left', // Choose the horizontal origin
@@ -150,3 +152,52 @@ $(document).ready(function(){
 });
 $('select').material_select();
 $('.collapsible').collapsible();
+
+
+//update.reservation.php
+
+
+/*
+function showcustomer(str1,str2) {
+
+  if (str11 !="" && str2 !="") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+    } else {
+      // code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+
+        $('.view_data').click(function () {
+          var id = $(this).attr("value");
+          showDialog({
+            title: 'DELETE booking with ID: '+id,
+            text: 'Are you sure you want to Delete this Booking?',
+            negative: {
+              title: 'Cancel'
+            },
+            positive: {
+              title: 'Yes',
+              onClick: function (e) {
+                xmlhttp.open("POST","delete.reservation.php?bookingID="+id,true);
+                xmlhttp.send();
+              }
+            }
+          });
+        });
+
+      }
+    };
+    xmlhttp.open("GET","update.reservation?q="+str1+"id="+str2,true);
+    xmlhttp.send();
+  }
+}
+*/

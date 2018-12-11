@@ -21,6 +21,7 @@ function showDialog(options) {
         id: 'orrsDiag',
         title: null,
         text: null,
+        html:null,
         neutral: false,
         negative: false,
         positive: false,
@@ -40,10 +41,16 @@ function showDialog(options) {
     $('<div id="' + options.id + '" class="dialog-container"><div class="mdl-card mdl-shadow--16dp" id="' + options.id + '_content"></div></div>').appendTo("body");
     var dialog = $('#' + options.id);
     var content = dialog.find('.mdl-card');
+    $('.dialog-container').css('height',$(document).height());
     if (options.contentStyle != null) content.css(options.contentStyle);
     if (options.title != null) {
         $('<h5>' + options.title + '</h5>').appendTo(content);
     }
+
+    if(options.html != null){
+      $(options.html).appendTo(content);
+    }
+
     if (options.text != null) {
         $('<p>' + options.text + '</p>').appendTo(content);
     }
