@@ -4,6 +4,16 @@ require_once('database.class.php');
 
 class RerservationModel{
 
+  function set_customer($Reservation){
+    $query = "update reservation set checkin_date ='".$Reservation['checkin_date']."', checkout_date ='".$Reservation['checkout_date']."',
+    room_id ='".$Reservation['room_id']."',total_adult ='".$Reservation['total_adult']."', total_children ='".$Reservation['total_children'].
+    "',special_requirement ='".$Reservation['special_requirement']."', total_amount ='".$Reservation['total_amount']."',deposit ='".$Reservation['deposit'].
+   "',payment_status ='".$Reservation['payment_status']."'WHERE booking_id =".$Reservation['booking_id'].";";
+
+    $db = new Database;
+    $result = $db->query($query);
+  }
+
   function get_reservation_by_ID($bookingID){
     $query = "select * from `reservation` WHERE booking_id='$bookingID';";
     $db = new Database;

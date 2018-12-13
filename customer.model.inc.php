@@ -61,6 +61,16 @@ class CustomerModel{
   }
 */
 
+  function set_customer($customer){
+    $query = "update customers set first_name ='".$customer['first_name']."', last_name ='".$customer['last_name']."',
+    email ='".$customer['email']."',telephone_no ='".$customer['telephone_no']."', add_line1 ='".$customer['add_line1'].
+    "',add_line2 ='".$customer['add_line2']."', city ='".$customer['city']."',state ='".$customer['state'].
+   "',postcode ='".$customer['postcode']."',country ='".$customer['country']."' WHERE cus_id =".$customer['cus_id'].";";
+
+    $db = new Database;
+    $result = $db->query($query);
+  }
+
   function get_customer_by_ID($custID){
     $query = "select * from customers where cus_id = $custID;";
     $db = new Database;
