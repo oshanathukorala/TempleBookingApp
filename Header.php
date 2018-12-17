@@ -54,8 +54,7 @@ if(!isset($_SESSION['user'])){
     <li><div class="divider"></div></li>
 
     <li><a class="subheader">Management</a></li>
-    <li><a href="names.html"><i class="material-icons pink-item">book</i>Reservation management</a></li>
-    <li><a href="names.html"><i class="material-icons pink-item">room</i>Room management</a></li>
+    <li><a href="room.php"><i class="material-icons pink-item">room</i>Room management</a></li>
     <li><a href="names.html"><i class="material-icons pink-item">hotel</i>Make a Booking</a></li>
     <li><a href="signup.php"><i class="material-icons pink-item">person_add</i>Add User</a></li>
   </ul>
